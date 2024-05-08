@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
+  --foreground-rgb: 19, 44, 45;
   --background-start-rgb: 214, 219, 220;
   --background-end-rgb: 255, 255, 255;
 }
@@ -18,12 +18,11 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+}
+
+main {
+    position: relative;
+    overflow: hidden;
 }
 
 @layer utilities {
@@ -31,3 +30,115 @@ body {
     text-wrap: balance;
   }
 }
+
+.handle,
+.back-handle {
+  position: absolute;
+  display: inline-block;
+  z-index: 1000;
+}
+
+.handle[data-permalink=back][data-position=top] path, .handle[data-permalink=back][data-position=right] path, .handle[data-permalink=back][data-position=bottom] path, .handle[data-permalink=back][data-position=left] path,
+.back-handle[data-permalink=back][data-position=top] path,
+.back-handle[data-permalink=back][data-position=right] path,
+.back-handle[data-permalink=back][data-position=bottom] path,
+.back-handle[data-permalink=back][data-position=left] path {
+  fill: #FFFFFF;
+}
+.handle[data-position=top],
+.back-handle[data-position=top] {
+  left: 50%;
+  transform: translate(-50%, 0) scale(1);
+}
+.handle[data-position=top] path,
+.back-handle[data-position=top] path {
+  fill: #171717;
+}
+.handle[data-position=right],
+.back-handle[data-position=right] {
+  top: 50%;
+  left: 100%;
+  transform: translate(-100%, -50%) scale(1) rotate(90deg);
+}
+.handle[data-position=right] path,
+.back-handle[data-position=right] path {
+  fill: #002147;
+}
+.handle[data-position=bottom],
+.back-handle[data-position=bottom] {
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -100%) scale(1) rotate(180deg);
+}
+.handle[data-position=bottom] path,
+.back-handle[data-position=bottom] path {
+  fill: #C8ADE1;
+}
+.handle[data-position=left],
+.back-handle[data-position=left] {
+  top: 50%;
+  left: 0;
+  transform: translate(0, -50%) scale(1) rotate(-90deg);
+}
+.handle[data-position=left] path,
+.back-handle[data-position=left] path {
+  fill: #A7DCF7;
+}
+
+.handle.out,
+.back-handle.out {
+  pointer-events: none;
+  display: none;
+}
+.handle.out path,
+.back-handle.out path {
+  pointer-events: none;
+}
+.handle path,
+.back-handle path {
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.page-transition {
+  position: absolute;
+}
+.page-transition svg {
+  overflow: visible;
+}
+
+
+.card:hover {
+    background: #002147;
+}
+.card:hover span {
+    color: #fff;
+}
+
+#container {
+    --target: 100%;
+    width: 100%;
+    background: linear-gradient(to right, #000 var(--target), #fff var(--target));
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  #container h1 {
+    color: white;
+    font-size: clamp(2.5rem, 8vw, 6rem);
+    text-align: center;
+    letter-spacing: -0.02em;
+    background: linear-gradient(to right, #fff var(--target), #000 var(--target));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    width: 100%;
+    display: block;
+    line-height: 0.95;
+  }
+  #container h1 span {
+    font-size: 0.5em;
+    display: block;
+  }
+  
