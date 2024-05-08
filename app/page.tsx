@@ -59,7 +59,7 @@ export default function Home() {
             <div className="dashboard relative z-10 flex min-h-screen flex-col items-center justify-center gap-20 p-24 bg-white dark:bg-neutral-900 transition duration-300 ease-in-out">
                 <div className="relative flex place-items-center text-center">
                     <h1 className="text-3xl z-10 font-semibold leading-tight dark:text-white transition duration-300 ease-in-out">
-                        <span className="block">where ideas meet design</span>
+                        <span className="block">where ideas meet design test</span>
                         <span className="block text-neutral-500 dark:text-neutral-500 transition duration-300 ease-in-out">design turns into innovations</span>
                     </h1>
                 </div>
